@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class LinkedInUserCSVReader {
 	private Path dataFilePath;
 
@@ -19,18 +20,16 @@ public class LinkedInUserCSVReader {
 		Files.lines(dataFilePath).forEach(line -> {
 			String[] tokens = line.split(",");
 
-			String postID = tokens[0];
-			String textBody = tokens[1];
-			String hashTags = tokens[2];
-			String likes = tokens[3];
-			String comments = tokens[4];
-			String views = tokens[5];
+			int postID = Integer.parseInt(tokens[0].trim());
+			String textBody = tokens[1].trim();
+			String likes = tokens[3].trim();
+			String comments = tokens[4].trim();
+			String views = tokens[5].trim();
 
-			result.add(new Post(Integer.parseInt(postID),
-					textBody, hashTags,
+			result.add(new Post(postID,
+					Integer.parseInt(views),
 					Integer.parseInt(likes),
-					Integer.parseInt(comments),
-					Integer.parseInt(views)));
+					textBody));
 		});
 		return result;
 	}
