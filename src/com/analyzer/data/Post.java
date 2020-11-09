@@ -90,6 +90,8 @@ public class Post {
                 ", views=" + views +
                 ", likes=" + likes +
                 ", text='" + textBody + '\'' +
-                '}';
+                    ", hashtags='" + hashTags + '\'' +
+
+                    '}';
     }
 }
