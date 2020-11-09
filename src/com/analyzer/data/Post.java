@@ -7,28 +7,26 @@ import java.util.Objects;
 
 public class Post {
     // Field
-    int postid;
-    String textBody;
+    int postId;
+    String mainTextContent;
+    List<String> listofHashTags;
     String hashTags;
-    int likes;
-    int comments;
-    int views;
-
-    //TODO for nick
-    //to be implemeneted List<String> hashtag;
+    int numOfLikes;
+    int numOfComments;
+    int numOfViews;
 
     // Constructor
     public Post() {
 
     }
 
-    public Post(int postid, String text, String hashTags, int likes, int comments, int views) {
-        this.postid = postid;
-        this.hashTags = hashTags;
-        this.comments = comments;
-        this.views = views;
-        this.likes = likes;
-        this.textBody = text;
+    public Post(int postId, String mainTextContent, List<String> listofHashTags, int numOfLikes, int numOfComments, int numOfViews) {
+        this.postId = postId;
+        this.listofHashTags = listofHashTags;
+        this.numOfComments = numOfComments;
+        this.numOfViews = numOfViews;
+        this.numOfLikes = numOfLikes;
+        this.mainTextContent = mainTextContent;
     }
 
 
@@ -38,58 +36,59 @@ public class Post {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Post post = (Post) o;
-        return postid == post.postid &&
-                views == post.views &&
-                likes == post.likes &&
-                Objects.equals(textBody, post.textBody);
+        return postId == post.postId &&
+                numOfViews == post.numOfViews &&
+                numOfLikes == post.numOfLikes &&
+                Objects.equals(mainTextContent, post.mainTextContent) &&
+                Objects.equals(hashTags, post.hashTags);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(postid, views, likes, textBody);
+        return Objects.hash(postId, numOfViews, numOfLikes, mainTextContent);
     }
 
     // Accessor
-    public int getPostid() {
-        return postid;
+    public int getPostId() {
+        return postId;
     }
 
-    public void setPostid(int postid) {
-        this.postid = postid;
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
-    public int getViews() {
-        return views;
+    public int getNumOfViews() {
+        return numOfViews;
     }
 
-    public void setViews(int views) {
-        this.views = views;
+    public void setNumOfViews(int numOfViews) {
+        this.numOfViews = numOfViews;
     }
 
-    public int getLikes() {
-        return likes;
+    public int getNumOfLikes() {
+        return numOfLikes;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setNumOfLikes(int numOfLikes) {
+        this.numOfLikes = numOfLikes;
     }
 
     public String getText() {
-        return textBody;
+        return mainTextContent;
     }
 
     public void setText(String text) {
-        this.textBody = text;
+        this.mainTextContent = text;
     }
 
     // toString()
     @Override
     public String toString() {
         return "Post{" +
-                "postid=" + postid +
-                ", views=" + views +
-                ", likes=" + likes +
-                ", text='" + textBody + '\'' +
+                "postid=" + postId +
+                ", views=" + numOfViews +
+                ", likes=" + numOfLikes +
+                ", text='" + mainTextContent + '\'' +
                     ", hashtags='" + hashTags + '\'' +
 
                     '}';
