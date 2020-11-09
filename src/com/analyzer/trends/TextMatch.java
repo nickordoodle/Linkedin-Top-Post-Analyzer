@@ -1,4 +1,4 @@
 package com.analyzer.trends;
 
-public class TextMatch extends TrendFinder{
+public class TextMatch extends TrendFinder {
 }

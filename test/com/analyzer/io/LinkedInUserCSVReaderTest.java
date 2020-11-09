@@ -1,7 +1,6 @@
 package com.analyzer.io;
 
 import com.analyzer.data.Post;
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -15,13 +14,14 @@ public class LinkedInUserCSVReaderTest {
 				("src/com/data/nick-sample-data-25-entries-no-commas.csv");
 		try {
 			List<Post> result = reader.load();
-			for (Post post: result    ) {
+			for (Post post : result) {
 				System.out.println(post);
-
 			}
-		} catch(IOException e){
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 }
