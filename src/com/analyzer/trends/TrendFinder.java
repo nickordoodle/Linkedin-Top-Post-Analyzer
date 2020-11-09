@@ -1,4 +1,4 @@
 package com.analyzer.trends;
 
-public class testTwo {
+public interface TrendFinder {
 }

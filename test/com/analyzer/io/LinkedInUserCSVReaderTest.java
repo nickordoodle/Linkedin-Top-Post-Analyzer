@@ -1,14 +1,15 @@
-package main.java.com.analyzer.io;
+package com.analyzer.io;
 
 import junit.framework.TestCase;
 
 import java.util.List;
 
 public class LinkedInUserCSVReaderTest extends TestCase {
-
-	public void testLoad() {
+	public void testLoadReadsInStandardCSVDataOf25Posts() {
 		LinkedInUserCSVReader reader = new LinkedInUserCSVReader
-				("C:\\StudentWork\\MiniProject\\Linkedin-Top-Post-Analyzer\\src\\main\\java\\com\\data");
+				("C:\\StudentWork\\MiniProject\\" +
+						"Linkedin-Top-Post-Analyzer\\src\\" +
+						"com\\data\\nick-sample-data-25-entries.csv");
 		try {
 			List<Post> result = reader.load();
 			result.toString();
