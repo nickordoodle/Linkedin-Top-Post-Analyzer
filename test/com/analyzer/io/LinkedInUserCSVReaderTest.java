@@ -1,6 +1,9 @@
 package com.analyzer.io;
 
+import com.analyzer.data.Post;
 import junit.framework.TestCase;
+
+import java.io.IOException;
 import java.util.List;
 
 public class LinkedInUserCSVReaderTest extends TestCase {
@@ -12,7 +15,7 @@ public class LinkedInUserCSVReaderTest extends TestCase {
 		try {
 			List<Post> result = reader.load();
 			result.toString();
-		} catch(Exception e){
+		} catch(IOException e){
 			e.printStackTrace();
 		}
 	}

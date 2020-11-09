@@ -1,5 +1,7 @@
 package com.analyzer.io;
 
+import com.analyzer.data.Post;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,16 +22,20 @@ public class LinkedInUserCSVReader {
 		Files.lines(dataFilePath).forEach(line -> {
 			String[] tokens = line.split(",");
 
-			int postID = Integer.parseInt(tokens[0].trim());
+			String postIdString = tokens[0].replaceAll("[^0-9]+", "");
+			int postID = Integer.parseInt(postIdString);
 			String textBody = tokens[1].trim();
-			String likes = tokens[3].trim();
-			String comments = tokens[4].trim();
-			String views = tokens[5].trim();
+			String hashtags = tokens[2].trim();
+			String likesString = tokens[3].replaceAll("[^0-9]+", "");
+			int likes = Integer.parseInt(likesString);
+			String commentsString = tokens[4].replaceAll("[^0-9]+", "");
+			int comments = Integer.parseInt(commentsString);
+			String viewsString = tokens[5].replaceAll("[^0-9]+", "");
+			int views = Integer.parseInt(viewsString);
 
-			result.add(new Post(postID,
-					Integer.parseInt(views),
-					Integer.parseInt(likes),
-					textBody));
+
+			result.add(new Post(postID, textBody, hashtags,
+					likes, comments, views));
 		});
 		return result;
 	}

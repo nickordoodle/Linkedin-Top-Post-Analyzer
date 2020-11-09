@@ -8,23 +8,29 @@ import java.util.Objects;
 public class Post {
     // Field
     int postid;
-    int views;
+    String textBody;
+    String hashTags;
     int likes;
-    String text;
-    List<String> hashtag;
+    int comments;
+    int views;
+
+    //TODO for nick
+    //to be implemeneted List<String> hashtag;
 
     // Constructor
     public Post() {
 
     }
 
-    public Post(int postid, int views, int likes, String text, List<String> hashtag) {
+    public Post(int postid, String text, String hashTags, int likes, int comments, int views) {
         this.postid = postid;
+        this.hashTags = hashTags;
+        this.comments = comments;
         this.views = views;
         this.likes = likes;
-        this.text = text;
-        this.hashtag = hashtag;
+        this.textBody = text;
     }
+
 
     // Method
     @Override
@@ -35,13 +41,12 @@ public class Post {
         return postid == post.postid &&
                 views == post.views &&
                 likes == post.likes &&
-                Objects.equals(text, post.text) &&
-                Objects.equals(hashtag, post.hashtag);
+                Objects.equals(textBody, post.textBody);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(postid, views, likes, text, hashtag);
+        return Objects.hash(postid, views, likes, textBody);
     }
 
     // Accessor
@@ -70,11 +75,11 @@ public class Post {
     }
 
     public String getText() {
-        return text;
+        return textBody;
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.textBody = text;
     }
 
     // toString()
@@ -84,8 +89,7 @@ public class Post {
                 "postid=" + postid +
                 ", views=" + views +
                 ", likes=" + likes +
-                ", text='" + text + '\'' +
-                ", hashtag=" + hashtag +
+                ", text='" + textBody + '\'' +
                 '}';
     }
 }
