@@ -1,4 +1,4 @@
 package com.analyzer.io;
 
-public class Reader {
+public class testOne {
 }
