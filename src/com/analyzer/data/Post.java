@@ -4,6 +4,7 @@ package com.analyzer.data;
  */
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class Post {
     // Field
@@ -89,7 +90,7 @@ public class Post {
                 ", views=" + numOfViews +
                 ", likes=" + numOfLikes +
                 ", text='" + mainTextContent + '\'' +
-                    ", hashtags='" + hashTags + '\'' +
+                    ", hashtags='" + listofHashTags.toString() + '\'' +
 
                     '}';
     }

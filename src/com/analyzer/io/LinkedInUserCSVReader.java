@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -34,14 +35,21 @@ public class LinkedInUserCSVReader {
 
 			// Change raw string input to appropriate type
 			int postID = Integer.parseInt(postIdString);
+			// Further data cleaning for splitting up hashtags
 			String[] hashTagsDelimited = hashTags.split("#");
-			List<String> hashTagList = Arrays.asList(hashTagsDelimited);
+			String[] hashTagsDelimitedNonNullValues = Arrays.stream(hashTagsDelimited)
+					.filter(s -> (s != null && s.length() > 0))
+					.toArray(String[]::new);
+			ArrayList<String> hashTagArrayList = new ArrayList<>();
+			hashTagArrayList.addAll(Arrays.asList(hashTagsDelimitedNonNullValues));
+
+
 			int likes = Integer.parseInt(likesString);
 			int comments = Integer.parseInt(commentsString);
 			int views = Integer.parseInt(viewsString);
 
 			// Create a new object with the converted values
-			result.add(new Post(postID, textBody, hashTagList,
+			result.add(new Post(postID, textBody, hashTagArrayList,
 					likes, comments, views));
 		});
 		return result;
