@@ -1,3 +1,7 @@
+# Intellij generated
+.idea/
+.iml
+
 # Compiled class file
 *.class
 
