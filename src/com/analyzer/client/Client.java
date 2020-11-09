@@ -3,13 +3,8 @@ package com.analyzer.client;
  *
  */
 
-class Client {
-    // Field
+public class Client {
+    public static void main(String[] args) {
 
-    // Constructor
-
-    // Method
-
-    // Accessor
-
+    }
 }
