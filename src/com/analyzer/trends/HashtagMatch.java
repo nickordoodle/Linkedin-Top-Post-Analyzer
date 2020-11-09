@@ -1,4 +1,5 @@
 package com.analyzer.trends;
 
-public class HashtagMatch {
+public class HashtagMatch extends TrendFinder {
+
 }
