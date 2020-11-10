@@ -67,7 +67,6 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 	 * @see List
 	 */
 	private List<String> filterTextPosts(List<String> userTextContentFromPosts) {
-		//TODO implement, should remove prepositions, pronouncs, conjunctions etc.
 		List<String> filteredTextContentFromPosts = new ArrayList<>();
 
 		// Filter to only words, remove any empties and remove pronouns, prepositions and conjunctions
