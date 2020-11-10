@@ -38,9 +38,10 @@ public abstract class TrendFinder {
 	 * views, then number of likes and finally by number of comments.
 	 * This approach assumes that more views, likes and comments
 	 * correlate positively with a more popular post according to LinkedIn.
-	 * @param  limit  the maximum number of top posts to retrieve
-	 * @return      the list of top user posts
-	 * @see         List
+	 *
+	 * @param limit the maximum number of top posts to retrieve
+	 * @return the list of top user posts
+	 * @see List
 	 */
 	private List<Post> getTopPosts(int limit) {
 		return userPostsDataFromCSVFile.stream()
@@ -57,17 +58,19 @@ public abstract class TrendFinder {
 	 * This implementation specific method analyzes the top user posts.
 	 * It then will determine useful information for the user to know
 	 * and returns a list of Strings as a result for future output.
-	 * @param  numOfResultsToFind  the maximum number of results to find
-	 * @return      the list of String results
-	 * @see         List
+	 *
+	 * @param numOfResultsToFind the maximum number of results to find
+	 * @return the list of String results
+	 * @see List
 	 */
 	//TODO change hashtag sniffer function to implement this function
 	public abstract List<String> findTrend(int numOfResultsToFind) throws IOException;
 
 	/**
 	 * Returns the user posts list.
-	 * @return      the user posts
-	 * @see         List
+	 *
+	 * @return the user posts
+	 * @see List
 	 */
 	public List<Post> getUserPostsDataFromCSVFile() {
 
@@ -76,8 +79,9 @@ public abstract class TrendFinder {
 
 	/**
 	 * Returns the top users post list.
-	 * @return      the top user posts limited to a certain number of values
-	 * @see         List
+	 *
+	 * @return the top user posts limited to a certain number of values
+	 * @see List
 	 */
 	public List<Post> getUserTopPostsFilteredByALimit() {
 		return userTopPostsFilteredByALimit;

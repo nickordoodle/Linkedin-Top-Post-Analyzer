@@ -1,10 +1,10 @@
 package com.analyzer.trends;
 
 import com.analyzer.data.Post;
-import com.analyzer.io.LinkedInUserCSVReader;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class TextContentKeyWordSniffer extends TrendFinder {
@@ -22,9 +22,10 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 	 * Anaylzes the top posts by cross referencing the most common words used.
 	 * These will be referred to as 'keywords' and the assumption is that these
 	 * keywords positively increased their posts reach according to LinkedIns algorithm.
-	 * @param  numOfResultsToFind  the maximum number of results to find
-	 * @return      the list of String results
-	 * @see         List
+	 *
+	 * @param numOfResultsToFind the maximum number of results to find
+	 * @return the list of String results
+	 * @see List
 	 */
 	@Override
 	public List<String> findTrend(int numOfResultsToFind) {
@@ -44,49 +45,36 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 				.map(Post::getMainTextContent)
 				.collect(Collectors.toList());
 
-		// flatten list into an list of string of all hashtags retrived.
-//		List<String> listOfKeyWords = topPostTextContentList.stream()
-//				.flatMap(Collection::stream)
-//				.collect(Collectors.toList());
+		List<String> listOfKeyWords = new ArrayList<>();
 
-		// Insert listOfHashtags into Map<Integer, String>
-//		Map<Integer, String> mod = new HashMap<>();
-//		for (int i = 0; i < listOfKeyWords.size(); i++) {
-//			int count = 0;
-//			for (int j = 0; j < listOfKeyWords.size(); j++) {
-//				if (listOfKeyWords.get(i).equals(listOfKeyWords.get(j))) {
-//					++count;
-//				}
-//			}
-//			// insert number of appearance as key, and the Hashtag itself as its value] into HashMap mod.
-//			mod.put(count, listOfKeyWords.get(i));
-//		}
-//
-//
-//		// Find out the maximum appearances numbers.
-//		for (int count : mod.keySet()) {
-//			if (count > max) {
-//				max = count;
-//			}
-//		}
-//
-//		int finalMax = max;
-//        /*   // a sneak peak of the result of Map mode.
-//            for (Map.Entry<Integer,String> key: mod.entrySet()){
-//            System.out.println(key.getValue() +" appeared "+ key.getKey() +" time/s");
-//        }*/
-//		List<String> keywordResults = mod.entrySet().stream()
-//				.filter(c -> c.getKey() == finalMax)
-//				.map(Map.Entry::getValue)
-//				.collect(Collectors.toList());
+		for (String textContent: topPostTextContentList){
+			List<String> filteredWords = Arrays.asList(textContent.split("\\W"));
+			// Remove any possible empty values included
+			filteredWords.removeIf(String::isEmpty);
+			listOfKeyWords.addAll(filteredWords);
+		}
+
+		Map<String, Integer> keywordOccurrences = new HashMap<>();
+		listOfKeyWords.forEach(keyword -> {
+			if(keywordOccurrences.containsKey(keyword)){
+				// return the current count of this keyword
+				Integer newVal = keywordOccurrences.get(keyword) + 1;
+				keywordOccurrences.put(keyword, newVal);
+			} else {
+				// first occurrence of a keyword
+				keywordOccurrences.put(keyword, 1);
+			}
+		});
+
+		listOfKeyWords.sort(Comparator.comparingInt(keywordOccurrences::get));
 
 		// Return sub list of result according to limit
-		return keywordResults;
+		return listOfKeyWords.subList(0, numOfResultsToFind - 1);
 	}
 
 
 	//TODO implement, should remove prepositions, pronouncs, conjunctions etc.
-	private List<Post> filterTextPosts(List<Post> userPosts){
+	private List<Post> filterTextPosts(List<Post> userPosts) {
 		return null;
 	}
 }
