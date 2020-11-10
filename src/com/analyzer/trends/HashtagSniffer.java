@@ -33,11 +33,8 @@ public class HashtagSniffer extends TrendFinder {
      */
     @Override
     public List<String> findTrend(int numOfResultsToFind) throws IOException {
-        LinkedInUserCSVReader reader = new LinkedInUserCSVReader(csvDataFilePath);
-        List<Post> temp = reader.load();
-
         // sorting list, return a list of List<String> of hashtags for the top ${numOfResultsToFind} post/s.
-        List<List<String>> list = getUserPostsDataFromCSVFile().stream()
+        List<List<String>> list = getUserTopPostsFilteredByALimit().stream()
                 .map(Post::getListOfHashTags)
                 .collect(Collectors.toList());
 
