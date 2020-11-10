@@ -32,7 +32,12 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 		// Find most used verbs and nouns
 		List<String> keywordResults = new ArrayList<>();
 
-
+		// Whats a keyword?  Most common words used throughout posts
+		// only compare keywords to other posts, not against its own post
+		// Get occurrences of every word in a unique post
+		// ie. "development" occurs in Post 1, Post 3, Post 10.
+		// so Map<String, occurences> is "development", 3
+		// Continue to search and add for keywords until threshold of result is reached
 
 		// Sort result of most used keywords
 
