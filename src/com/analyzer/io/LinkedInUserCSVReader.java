@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
+//TODO make project run script to build jar via .sh bash file for windows
 
 public class LinkedInUserCSVReader {
     private Path dataFilePath;
