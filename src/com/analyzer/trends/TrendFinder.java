@@ -30,28 +30,36 @@ public abstract class TrendFinder {
 		userTopPostsFilteredByALimit = getTopPosts(numOfTopPostsToFind);
 	}
 
-	/*
-	* Read in raw csv data
-	* Get top posts in this class and hand them to each sniffer
-	* Sniffers give back some something to work with, list or hashmap of something
+	/**
+	 * Returns the top post list to be used internally.
+	 * <p>
+	 * This method finds the users top posts.  It does this by
+	 * first sorting the raw csv data list according to number of
+	 * views, then number of likes and finally by number of comments.
+	 * This approach assumes that more views, likes and comments
+	 * correlate positively with a more popular post according to LinkedIn.
+	 * @param  limit  the maximum number of top posts to retrieve
+	 * @return      the list of top user posts
+	 * @see         List
 	 */
-
 	private List<Post> getTopPosts(int limit) {
-		List<Post> topPostsList = userPostsDataFromCSVFile.stream()
+		return userPostsDataFromCSVFile.stream()
 				.sorted(Comparator.comparing(Post::getNumOfViews).reversed()
 						.thenComparing(Post::getNumOfLikes).reversed()
 						.thenComparing(Post::getNumOfComments).reversed()) // Sort list by number of views then by number of likes and lastly by number of comments
 				.limit(limit) // limit outputs to limits that set by user. e.g. first 5.
 				.collect(Collectors.toList());
-
-		//result.addAll(list);
-		return topPostsList;
 	}
 
 
 	//TODO change hashtag sniffer function to implement this function
 	public abstract List<Post> findTrend(int limit) throws IOException;
 
+	/**
+	 * Returns the top users post list.
+	 * @return      the top user posts
+	 * @see         List
+	 */
 	public List<Post> getUserPostsDataFromCSVFile() {
 		return userPostsDataFromCSVFile;
 	}
