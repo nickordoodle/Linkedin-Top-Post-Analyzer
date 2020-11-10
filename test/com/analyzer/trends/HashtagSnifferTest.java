@@ -12,7 +12,7 @@ public class HashtagSnifferTest extends TestCase {
     @Test
     public void testHashtagSniffer() throws IOException {
         HashtagSniffer hSniffer = new HashtagSniffer
-                ("./src/com/data/25-posts-by-user-nick.csv");
+                (TrendFinder.csvDataFilePath);
         // the 1st post should have a id of 15.
         Assert.assertEquals(15, hSniffer.hashtagSniffer(5).get(0).getPostId());
         // the size of the returned list should match limits
