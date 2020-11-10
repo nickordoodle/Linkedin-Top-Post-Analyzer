@@ -16,13 +16,13 @@ import java.util.stream.Collectors;
 
 public class HashtagSniffer {
     private String dataFilePath;
-    List<Post> result = new ArrayList<>();
+    //List<Post> result = new ArrayList<>();
 
     public HashtagSniffer(String dataFilePath) throws IOException {
         this.dataFilePath = dataFilePath;
     }
 
-    public List<Post> hashtagSniffer() throws IOException {
+    public List<Post> hashtagSniffer(int limit) throws IOException {
 
         LinkedInUserCSVReader reader = new LinkedInUserCSVReader(dataFilePath);
         List<Post> temp = reader.load();
@@ -31,10 +31,10 @@ public class HashtagSniffer {
                 .sorted(Comparator.comparing(Post::getNumOfViews).reversed()
                         .thenComparing(Post::getNumOfLikes).reversed()
                         .thenComparing(Post::getNumOfComments).reversed()) // Sort list by number of views then by number of likes and lastly by number of comments
-                //.limit(5) // limit outputs to limits that set by user. e.g. first 5.
+                .limit(limit) // limit outputs to limits that set by user. e.g. first 5.
                 .collect(Collectors.toList());
 
-        result.addAll(list);
-        return result;
+        //result.addAll(list);
+        return list;
     }
 }
