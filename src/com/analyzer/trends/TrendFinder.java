@@ -51,7 +51,16 @@ public abstract class TrendFinder {
 				.collect(Collectors.toList());
 	}
 
-
+	/**
+	 * Returns a list of trend results according to users top posts.
+	 * <p>
+	 * This implementation specific method analyzes the top user posts.
+	 * It then will determine useful information for the user to know
+	 * and returns a list of Strings as a result for future output.
+	 * @param  numOfResultsToFind  the maximum number of results to find
+	 * @return      the list of String results
+	 * @see         List
+	 */
 	//TODO change hashtag sniffer function to implement this function
 	public abstract List<String> findTrend(int numOfResultsToFind) throws IOException;
 
