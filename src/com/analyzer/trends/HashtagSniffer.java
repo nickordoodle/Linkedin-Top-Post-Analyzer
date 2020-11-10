@@ -22,6 +22,9 @@ public class HashtagSniffer {
         this.dataFilePath = dataFilePath;
     }
 
+    // This looks like it returns the top number of posts according to limit
+    // Doesn't do anything with hashTags yet, maybe rename method
+    // TODO rename method more accurately?
     public List<Post> hashtagSniffer(int limit) throws IOException {
 
         LinkedInUserCSVReader reader = new LinkedInUserCSVReader(dataFilePath);
