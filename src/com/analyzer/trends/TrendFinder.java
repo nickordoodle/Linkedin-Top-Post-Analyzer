@@ -65,11 +65,20 @@ public abstract class TrendFinder {
 	public abstract List<String> findTrend(int numOfResultsToFind) throws IOException;
 
 	/**
-	 * Returns the top users post list.
-	 * @return      the top user posts
+	 * Returns the user posts list.
+	 * @return      the user posts
 	 * @see         List
 	 */
 	public List<Post> getUserPostsDataFromCSVFile() {
 		return userPostsDataFromCSVFile;
+	}
+
+	/**
+	 * Returns the top users post list.
+	 * @return      the top user posts limited to a certain number of values
+	 * @see         List
+	 */
+	public List<Post> getUserTopPostsFilteredByALimit() {
+		return userTopPostsFilteredByALimit;
 	}
 }

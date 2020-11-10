@@ -4,13 +4,17 @@ import com.analyzer.data.Post;
 import com.analyzer.io.LinkedInUserCSVReader;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class TextContentKeyWordSniffer extends TrendFinder {
 
+	private List<Post> textContentOfUserPosts;
+
 	public TextContentKeyWordSniffer() throws IOException {
+		this.textContentOfUserPosts = filterTextPosts(getUserTopPostsFilteredByALimit());
 	}
 
 	/**
@@ -26,14 +30,17 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 	@Override
 	public List<String> findTrend(int numOfResultsToFind) {
 		// Find most used verbs and nouns
+		List<String> keywordResults = new ArrayList<>();
+
+
 
 		// Sort result of most used keywords
 
 		// Return sub list of result according to limit
-		return null;
+		return keywordResults;
 	}
 
-	private List<Post> filterTextPosts(){
+	private List<Post> filterTextPosts(List<Post> userPosts){
 		return null;
 	}
 }
