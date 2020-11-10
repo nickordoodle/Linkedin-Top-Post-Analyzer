@@ -70,6 +70,7 @@ public abstract class TrendFinder {
 	 * @see         List
 	 */
 	public List<Post> getUserPostsDataFromCSVFile() {
+
 		return userPostsDataFromCSVFile;
 	}
 
