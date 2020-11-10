@@ -24,7 +24,7 @@ public class HashtagSniffer {
 
         LinkedInUserCSVReader reader = new LinkedInUserCSVReader(dataFilePath);
         List<Post> temp = reader.load();
-
+        limit = temp.size();
         // sorting list, return a list of List<String> of hashtages for the top ${limit} post/s.
         List<List<String>> list = temp.stream()
                 .sorted(Comparator.comparing(Post::getNumOfViews).reversed()
@@ -51,6 +51,7 @@ public class HashtagSniffer {
                 }
                 // insert number of appearance as key, and the Hashtag itself as its value] into HashMap mod
                 mod.put(count, listOfHashtags.get(i));
+                System.out.println(mod.get(count));
             }
         }
         // Find out the maximum appearances
@@ -59,8 +60,8 @@ public class HashtagSniffer {
                 max = count;
             }
         }
-
         int finalMax = max;
+        System.out.println(finalMax);
         List<String> modeOfHashtags = mod.entrySet().stream()
                 .filter(c->c.getKey() == finalMax)
                 .map(Map.Entry::getValue)
