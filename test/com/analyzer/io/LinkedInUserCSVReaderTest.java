@@ -14,20 +14,24 @@ public class LinkedInUserCSVReaderTest {
 	private String noEntryCSVPath;
 	private String oneEntryCSVPath;
 	private String partialEntryCSVPath;
+	private String twentyFiveEntryCSVPath;
 
 	private LinkedInUserCSVReader readerWithNoEntries;
 	private LinkedInUserCSVReader readerWithOneEntry;
 	private LinkedInUserCSVReader readerWithPartialEntry;
+	private LinkedInUserCSVReader readerWithTwentyFiveEntries;
 
 	private List<Post> noPosts;
 	private List<Post> onePost;
 	private List<Post> partialPost;
+	private List<Post> twentyFivePosts;
 
 	@Before
 	public void setUp() throws IOException {
 		noEntryCSVPath = "src/com/data/0-post-by-user.csv";
 		oneEntryCSVPath = "src/com/data/1-post-by-user.csv";
 		partialEntryCSVPath = "src/com/data/partial-post-by-user.csv";
+		twentyFiveEntryCSVPath = "src/com/data/25-posts-by-user-nick.csv";
 
 		readerWithNoEntries = new LinkedInUserCSVReader
 				(noEntryCSVPath);
@@ -35,10 +39,13 @@ public class LinkedInUserCSVReaderTest {
 				(oneEntryCSVPath);
 		readerWithPartialEntry = new LinkedInUserCSVReader
 				(partialEntryCSVPath);
+		readerWithTwentyFiveEntries = new LinkedInUserCSVReader
+				(twentyFiveEntryCSVPath);
 
 		noPosts = readerWithNoEntries.load();
 		onePost = readerWithOneEntry.load();
 		partialPost = readerWithPartialEntry.load();
+		twentyFivePosts = readerWithTwentyFiveEntries.load();
 	}
 
 	@Test
@@ -74,6 +81,11 @@ public class LinkedInUserCSVReaderTest {
 		partialPost.setNumOfViews(405);
 		partialPostList.add(partialPost);
 		assertEquals(partialPostList, this.partialPost);
+	}
+
+	@Test
+	public void testLoadReadsInStandardCSVDataOfNicksPosts() {
+		assertEquals(25, twentyFivePosts.size());
 	}
 
 }
