@@ -37,7 +37,7 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 
 		Map<String, Integer> keywordOccurrences = new HashMap<>();
 		listOfKeyWords.forEach(keyword -> {
-			if(keywordOccurrences.containsKey(keyword)){
+			if (keywordOccurrences.containsKey(keyword)) {
 				// return the current count of this keyword
 				Integer newVal = keywordOccurrences.get(keyword) + 1;
 				keywordOccurrences.put(keyword, newVal);
@@ -70,14 +70,14 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 		List<String> filteredTextContentFromPosts = new ArrayList<>();
 
 		// Filter to only words, remove any empties and remove pronouns, prepositions and conjunctions
-		for (String textContent: userTextContentFromPosts){
+		for (String textContent : userTextContentFromPosts) {
 			List<String> filteredWords = Arrays.asList(textContent.split("\\W"));
 			// Remove any possible empty values included
 			filteredWords.removeIf(String::isEmpty);
 			filteredWords.removeIf(keyword -> {
-				if(DictionaryHelper.isPronoun(keyword)
+				if (DictionaryHelper.isPronoun(keyword)
 						|| DictionaryHelper.isPreposition(keyword)
-						|| DictionaryHelper.isConjunction(keyword)){
+						|| DictionaryHelper.isConjunction(keyword)) {
 					return true;
 				}
 				return false;
