@@ -39,7 +39,10 @@ public class LinkedInUserCSVReader {
 				// Read in csv tokens on each line, clean data of extra hidden characters
 				String postIdString = tokens[0].replaceAll("[^0-9]+", "");
 				String textBody = tokens[1].trim();
+
 				String hashTags = tokens[2].trim();
+				hashTags = hashTags.replaceAll("\\s", "");
+
 				String likesString = tokens[3].replaceAll("[^0-9]+", "");
 				String commentsString = tokens[4].replaceAll("[^0-9]+", "");
 				String viewsString = tokens[5].replaceAll("[^0-9]+", "");

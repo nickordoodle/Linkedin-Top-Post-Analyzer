@@ -10,8 +10,7 @@ public class Post {
 	// Field
 	int postId;
 	String mainTextContent;
-	List<String> listofHashTags;
-	String hashTags;
+	List<String> listOfHashTags;
 	int numOfLikes;
 	int numOfComments;
 	int numOfViews;
@@ -21,9 +20,9 @@ public class Post {
 
 	}
 
-	public Post(int postId, String mainTextContent, List<String> listofHashTags, int numOfLikes, int numOfComments, int numOfViews) {
+	public Post(int postId, String mainTextContent, List<String> listOfHashTags, int numOfLikes, int numOfComments, int numOfViews) {
 		this.postId = postId;
-		this.listofHashTags = listofHashTags;
+		this.listOfHashTags = listOfHashTags;
 		this.numOfComments = numOfComments;
 		this.numOfViews = numOfViews;
 		this.numOfLikes = numOfLikes;
@@ -33,15 +32,15 @@ public class Post {
 
 	// Method
 	@Override
-	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
-		Post post = (Post) o;
+	public boolean equals(Object comparePost) {
+		if (this == comparePost) return true;
+		if (comparePost == null || getClass() != comparePost.getClass()) return false;
+		Post post = (Post) comparePost;
 		return postId == post.postId &&
 				numOfViews == post.numOfViews &&
 				numOfLikes == post.numOfLikes &&
 				Objects.equals(mainTextContent, post.mainTextContent) &&
-				Objects.equals(hashTags, post.hashTags);
+				Objects.equals(listOfHashTags, post.listOfHashTags);
 	}
 
 	@Override
@@ -58,12 +57,20 @@ public class Post {
 		this.postId = postId;
 	}
 
-	public int getNumOfViews() {
-		return numOfViews;
+	public String getMainTextContent() {
+		return mainTextContent;
 	}
 
-	public void setNumOfViews(int numOfViews) {
-		this.numOfViews = numOfViews;
+	public void setMainTextContent(String mainTextContent) {
+		this.mainTextContent = mainTextContent;
+	}
+
+	public List<String> getListOfHashTags() {
+		return listOfHashTags;
+	}
+
+	public void setListOfHashTags(List<String> listOfHashTags) {
+		this.listOfHashTags = listOfHashTags;
 	}
 
 	public int getNumOfLikes() {
@@ -74,12 +81,20 @@ public class Post {
 		this.numOfLikes = numOfLikes;
 	}
 
-	public String getText() {
-		return mainTextContent;
+	public int getNumOfComments() {
+		return numOfComments;
 	}
 
-	public void setText(String text) {
-		this.mainTextContent = text;
+	public void setNumOfComments(int numOfComments) {
+		this.numOfComments = numOfComments;
+	}
+
+	public int getNumOfViews() {
+		return numOfViews;
+	}
+
+	public void setNumOfViews(int numOfViews) {
+		this.numOfViews = numOfViews;
 	}
 
 	// toString()
@@ -87,11 +102,12 @@ public class Post {
 	public String toString() {
 		return "Post{" +
 				"postid=" + postId +
-				", views=" + numOfViews +
-				", likes=" + numOfLikes +
 				", text='" + mainTextContent + '\'' +
-				", hashtags='" + listofHashTags.toString() + '\'' +
-
+				", hashtags='" + listOfHashTags.toString() + '\'' +
+				", likes=" + numOfLikes +
+				", likes=" + numOfComments +
+				", views=" + numOfViews +
 				'}';
 	}
+
 }
