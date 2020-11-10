@@ -4,16 +4,13 @@ import com.analyzer.data.Post;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class TextContentKeyWordSniffer extends TrendFinder {
-	private int maxKeyWordAppearances = 0; // max number of hashtags appearances
-
-	private List<Post> textContentOfUserPosts;
+	private List<Post> topUsersPosts;
 
 	public TextContentKeyWordSniffer() throws IOException {
-		this.textContentOfUserPosts = filterTextPosts(getUserTopPostsFilteredByALimit());
+		this.topUsersPosts = filterTextPosts(getUserTopPostsFilteredByALimit());
 	}
 
 	/**
@@ -29,8 +26,6 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 	 */
 	@Override
 	public List<String> findTrend(int numOfResultsToFind) {
-		// Find most used verbs and nouns
-		List<String> keywordResults = new ArrayList<>();
 
 		// Whats a keyword?  Most common words used throughout posts
 		// only compare keywords to other posts, not against its own post
@@ -41,7 +36,7 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 // sorting list, return a list of List<String> of hashtags for the top ${numOfResultsToFind} post/s.
 
 		// Map all text content into its own list for comparing
-		List<String> topPostTextContentList = getUserTopPostsFilteredByALimit().stream()
+		List<String> topPostTextContentList = this.topUsersPosts.stream()
 				.map(Post::getMainTextContent)
 				.collect(Collectors.toList());
 
@@ -68,13 +63,25 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 
 		listOfKeyWords.sort(Comparator.comparingInt(keywordOccurrences::get));
 
+		//TODO Write code to handle return keyword list less than requested numberofresults
 		// Return sub list of result according to limit
 		return listOfKeyWords.subList(0, numOfResultsToFind - 1);
 	}
 
 
-	//TODO implement, should remove prepositions, pronouncs, conjunctions etc.
+	/**
+	 * Returns a list of Posts with irrelvant words filtered out of their text contents
+	 * <p>
+	 * Inspects the text content of each post. Removes irrelevant words and grammar
+	 * such as: pronouns, prepositions and conjunctions.  Meaningful text content
+	 * in this case consists of nouns, verbs, adjectives and adverbs.
+	 *
+	 * @param userPosts the list of Posts to filter
+	 * @return the list of filtered Posts
+	 * @see List
+	 */
 	private List<Post> filterTextPosts(List<Post> userPosts) {
+		//TODO implement, should remove prepositions, pronouncs, conjunctions etc.
 		return null;
 	}
 }
