@@ -53,7 +53,7 @@ public abstract class TrendFinder {
 
 
 	//TODO change hashtag sniffer function to implement this function
-	public abstract List<Post> findTrend(int limit) throws IOException;
+	public abstract List<String> findTrend(int numOfResultsToFind) throws IOException;
 
 	/**
 	 * Returns the top users post list.

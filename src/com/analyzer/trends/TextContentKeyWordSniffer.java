@@ -14,7 +14,7 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 	}
 
 	@Override
-	public List<Post> findTrend(int limit) throws IOException {
+	public List<String> findTrend(int numOfResultsToFind) {
 		return null;
 	}
 }
