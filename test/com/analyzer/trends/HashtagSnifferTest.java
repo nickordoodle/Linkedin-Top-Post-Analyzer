@@ -14,7 +14,7 @@ public class HashtagSnifferTest extends TestCase {
         HashtagSniffer hSniffer = new HashtagSniffer
                 ("./src/com/data/25-posts-by-user-nick.csv");
 
-        System.out.println(hSniffer.hashtagSniffer(5));
+        System.out.println(hSniffer.hashtagSniffer(5).get(0));
 
         // the 1st post should have a id of 15.
         //assertEquals(15, hSniffer.hashtagSniffer(5).get(0).getPostId());

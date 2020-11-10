@@ -4,10 +4,7 @@ import com.analyzer.data.Post;
 import com.analyzer.io.LinkedInUserCSVReader;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,7 +39,34 @@ public class HashtagSniffer {
                 .flatMap(Collection::stream)
                 .collect(Collectors.toList());
 
+        // insert listOfHashtags into Map<Integer, String>
+        int max = 0;
+        Map<Integer, String> mod = new HashMap<>();
+
+        for (int i = 0; i < listOfHashtags.size(); i++) {
+            int count = 0;
+            for (int j = 0; j < listOfHashtags.size(); j++) {
+                if (listOfHashtags.get(i).equals(listOfHashtags.get(j))) {
+                    ++count;
+                }
+                // insert number of appearance as key, and the Hashtag itself as its value] into HashMap mod
+                mod.put(count, listOfHashtags.get(i));
+            }
+        }
+        // Find out the maximum appearances
+        for (int count : mod.keySet()) {
+            if (count  > max) {
+                max = count;
+            }
+        }
+
+        int finalMax = max;
+        List<String> modeOfHashtags = mod.entrySet().stream()
+                .filter(c->c.getKey() == finalMax)
+                .map(Map.Entry::getValue)
+                .collect(Collectors.toList());
         //System.out.println(listOfHashtags);
-        return listOfHashtags;
+        //return listOfHashtags;
+        return modeOfHashtags;
     }
 }
