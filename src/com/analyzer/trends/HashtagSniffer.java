@@ -15,9 +15,11 @@ import java.util.stream.Collectors;
  */
 
 public class HashtagSniffer extends TrendFinder {
-	private int max = 0; // max appearances of a hashtags
+    private int max = 0; // max appearances of a hashtags
     private int finalMax = 0;
-	public HashtagSniffer() throws IOException {} // Constructor
+
+    public HashtagSniffer() throws IOException {
+    } // Constructor
 
     /**
      * Returns a list of Hashtag trend results according to users top posts.
@@ -90,8 +92,8 @@ public class HashtagSniffer extends TrendFinder {
                 .filter(c -> c.getKey() == finalMax)
                 .map(Map.Entry::getValue)
                 .collect(Collectors.toList());
-		return modeOfHashtags;
-	}
+        return modeOfHashtags;
+    }
 }
 
 

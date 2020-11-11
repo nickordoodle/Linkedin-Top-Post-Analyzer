@@ -20,12 +20,8 @@ public class HashtagSnifferTest {
 
 	@Test
 	public void testHashtagSniffer() throws IOException {
-
 		// expected result should match "[softwaredevelopment]"
 		assertEquals("[softwaredevelopment]", hSniffer.findTrend(5).toString());
-
-		//System.out.println();
-		//System.out.println(hSniffer.findTrend(5));
 	}
 }
 
