@@ -71,7 +71,7 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 
 		// Filter to only words, remove any empties and remove pronouns, prepositions and conjunctions
 		for (String textContent : userTextContentFromPosts) {
-			List<String> filteredWords = Arrays.asList(textContent.split("\\W"));
+			List<String> filteredWords = new ArrayList<>(Arrays.asList(textContent.split("\\W")));
 			// Remove any possible empty values included
 			filteredWords.removeIf(String::isEmpty);
 			filteredWords.removeIf(keyword -> {
