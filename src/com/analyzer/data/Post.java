@@ -1,19 +1,24 @@
 package com.analyzer.data;
-/*
- *
- */
+
 
 import java.util.List;
 import java.util.Objects;
 
+/** Represents a LinkedIn User Post.
+ * @author Jason Zhang
+ * @author Nick Scherer
+ * @version 1.0
+ * @since 1.0
+ */
 public class Post {
-	// Field
-	int postId;
-	String mainTextContent;
-	List<String> listOfHashTags;
-	int numOfLikes;
-	int numOfComments;
-	int numOfViews;
+
+	// Custom integer unique to each post
+	private int postId;
+	private String mainTextContent;
+	private List<String> listOfHashTags;
+	private int numOfLikes;
+	private int numOfComments;
+	private int numOfViews;
 
 	// Constructor
 	public Post() {
