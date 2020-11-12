@@ -26,6 +26,7 @@ public class HashtagSniffer extends Sniffer {
 	 * Creates a HashtagSniffer object.
 	 */
 	public HashtagSniffer() throws IOException {
+		super();
 	}
 
 	/**

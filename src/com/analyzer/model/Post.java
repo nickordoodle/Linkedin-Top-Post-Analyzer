@@ -26,7 +26,7 @@ public class Post {
 	 * Creates an empty Post.
 	 */
 	public Post() {
-
+		super();
 	}
 
 	/**

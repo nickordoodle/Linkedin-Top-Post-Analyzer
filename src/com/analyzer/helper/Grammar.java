@@ -73,6 +73,7 @@ public class Grammar {
 				"which", "for", "and", "nor", "but", "or", "yet", "so"
 		);
 
+
 		/**
 		 * Represents an English prepositions data list retrieved from internet source.
 		 */
@@ -104,4 +105,5 @@ public class Grammar {
 				"whomsoever", "whose", "whosever", "whosesoever", "whoso", "whosoever", "ye", "yon", "yonder",
 				"you", "your", "yours", "yourself", "yourselves");
 	}
+
 }

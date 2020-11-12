@@ -122,4 +122,5 @@ public class MainTextContentSniffer extends Sniffer {
 
 		return filteredTextContentFromPosts;
 	}
+
 }

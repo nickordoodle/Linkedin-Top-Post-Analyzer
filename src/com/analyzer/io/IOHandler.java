@@ -20,25 +20,23 @@ import java.util.concurrent.TimeUnit;
  * @since 1.0
  */
 public class IOHandler {
-
-	// Class Fields
+	// Field
 	private static String popResult;
 	private static Prompter prompter = new Prompter(new Scanner(System.in));
 	private static LinkedInUserCSVReader reader;
 	private static HashtagSniffer hashtagSniffer;
 	private static MainTextContentSniffer keyWordSniffer;
-	private static boolean isExit = false;
 	private static String csvFilePatch;
 	private static String followUpMsg = " Take our Advice, Increase your Reach, \n Expand your Network and Watch your Content go Viral! \n"
 			+ "Please enter 'Y' to continue to analyze another document or 'N' to exit \n" + "\n" + ">>";
 	private static String welcomeMsg = "Please provide the document in csv format" + "\n" + ">>";
 	private static final String goodbyeMsg = "Thank you for choosing Lambda Stream Technologies";
 
-	/**
-	 * Creates an IO Handler for the Client.
-	 */
+	// Constructor
 	public IOHandler() {
 	}
+
+	// Methods
 
 	/**
 	 * Main method in Writer Class, act as a wrapper inside IOHandler.
@@ -59,7 +57,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * Process user entry and invoke load() method in LinkedInUserCSVReader.
+	 * process user entry and invoke load() method in LinkedInUserCSVReader.
 	 * <p>
 	 * This implementation utilize load() method in LinkedInUserCSVReader
 	 * to capture data from csv document for further process.
@@ -73,19 +71,22 @@ public class IOHandler {
 				reader = new LinkedInUserCSVReader(csvFilePatch);
 				reader.load();
 			} else {
+				System.out.println("Sorry, Not a Valid path, Please try again.");
+				TimeUnit.SECONDS.sleep(1);
 				cleanScreen();
 				initialize();
 			}
 		} catch (IOException e) {
 			//e.printStackTrace();
-			System.out.println("Invalid input, File does not exist. " + "\n" +
+			System.out.println("Sorry, Not a Valid path, Please try again." + "\n" +
 					"Please provide a valid document " +
 					"or you can refer to historical recommendation below");
+			TimeUnit.SECONDS.sleep(1);
 		}
 	}
 
 	/**
-	 * Output analysis result.
+	 * output analysis result.
 	 * <p>
 	 * This implementation utilize hashtagTrend(), keywordTrend() methods
 	 * to prepare readable result of analysis.
@@ -100,16 +101,19 @@ public class IOHandler {
 	}
 
 	/**
-	 * Provide flag for program to indicate program flow.
+	 * provide flag for program to indicate program flow.
 	 * <p>
 	 * This implementation return boolean value to continue or exit
 	 * the program.
 	 * for details of each method, consult each individual method
 	 * API documents.
 	 */
-	private boolean isExit() throws InterruptedException {
+	private boolean isExit() throws InterruptedException, IOException {
 		String entry = prompter.prompt(followUpMsg);
-		if (!entry.toUpperCase().equals("Y")) {
+		if (!entry.toUpperCase().equals("N") && !entry.toUpperCase().equals("Y")) {
+			System.out.println("Sorry, Not a Valid path, Please try again.");
+			isExit();
+		} else if (entry.toUpperCase().equals("N")) {
 			System.out.println(goodbyeMsg);
 			TimeUnit.SECONDS.sleep(3);
 			System.exit(1);
@@ -118,7 +122,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * Return list of popular hashtags.
+	 * return list of popular hashtags.
 	 * <p>
 	 * This implementation invoke method in HashtagSniffer.
 	 * for details of each method, consult each individual method
@@ -130,7 +134,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * Return list of popular keywords.
+	 * return list of popular keywords.
 	 * <p>
 	 * This implementation invoke method in TextContentKeyWordSniffer.
 	 * for details of each method, consult each individual method
@@ -142,7 +146,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * Remove open and close bracket from returned string.
+	 * remove open and close bracket from returned string.
 	 * <p>
 	 * This implementation invoke replaceAll method with regex.
 	 * for details of each method, consult each individual method
@@ -153,7 +157,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * Load and print banner from banner.txt file.
+	 * load and print banner from banner.txt file.
 	 * <p>
 	 * This implementation read from external txt file for banner.
 	 * for details of each method, consult each individual method
