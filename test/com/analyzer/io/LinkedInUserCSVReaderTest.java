@@ -29,10 +29,10 @@ public class LinkedInUserCSVReaderTest {
 
 	@Before
 	public void setUp() throws IOException {
-		noEntryCSVPath = "src/com/data/0-post-by-user.csv";
-		oneEntryCSVPath = "src/com/data/1-post-by-user.csv";
-		partialEntryCSVPath = "src/com/data/partial-post-by-user.csv";
-		twentyFiveEntryCSVPath = "src/com/data/25-posts-by-user-nick.csv";
+		noEntryCSVPath = "test/com/analyzer/data/0-post-by-user.csv";
+		oneEntryCSVPath = "test/com/analyzer/data/1-post-by-user.csv";
+		partialEntryCSVPath = "test/com/analyzer/data/partial-post-by-user.csv";
+		twentyFiveEntryCSVPath = "test/com/analyzer/data/25-posts-by-user-nick.csv";
 
 		readerWithNoEntries = new LinkedInUserCSVReader
 				(noEntryCSVPath);
