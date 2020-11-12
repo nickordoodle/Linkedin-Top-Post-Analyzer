@@ -145,6 +145,7 @@ public class IOHandler {
         try {
             String banner = Files.readString(Path.of("src", "com", "data", "banner.txt"));
             System.out.println(banner);
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
