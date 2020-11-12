@@ -48,7 +48,7 @@ public class IOHandler {
 	 * for details of each method, consult each individual method
 	 * API documents.
 	 */
-	public void write() throws IOException, InterruptedException {
+	public void initialize() throws IOException, InterruptedException {
 		do {
 			bannerLoader();
 			read();
@@ -73,7 +73,7 @@ public class IOHandler {
 				reader.load();
 			} else {
 				cleanScreen();
-				write();
+				initialize();
 			}
 		} catch (IOException e) {
 			//e.printStackTrace();
