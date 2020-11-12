@@ -1,9 +1,10 @@
 # Linkedin Top Post Analyzer
-Provides meaningful content suggestions to use
-in your future LinkedIn Posts. 
+<Strong> Provides meaningful content suggestions to use
+in your future LinkedIn Posts.</Strong>
+
+
 ![Product Name Screen Shot][product-screenshot]
 
-TABLE OF CONTENTS
 ## Table of Contents
 
 * [About the Project](#about-the-project)
