@@ -1,7 +1,4 @@
 package com.analyzer.client;
-/*
- *
- */
 
 import com.analyzer.io.IOHandler;
 
