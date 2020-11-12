@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TextContentKeyWordSniffer extends TrendFinder {
+public class MainTextContentSniffer extends Sniffer {
 	private List<Post> topUsersPosts;
 
-	public TextContentKeyWordSniffer() throws IOException {
+	public MainTextContentSniffer() throws IOException {
 		this.topUsersPosts = getUserTopPostsFilteredByALimit();
 	}
 

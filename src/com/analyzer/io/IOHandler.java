@@ -1,7 +1,7 @@
 package com.analyzer.io;
 
 import com.analyzer.trends.HashtagSniffer;
-import com.analyzer.trends.TextContentKeyWordSniffer;
+import com.analyzer.trends.MainTextContentSniffer;
 import com.apps.util.Prompter;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class IOHandler {
 	private static Prompter prompter = new Prompter(new Scanner(System.in));
 	private static LinkedInUserCSVReader reader;
 	private static HashtagSniffer hashtagSniffer;
-	private static TextContentKeyWordSniffer keyWordSniffer;
+	private static MainTextContentSniffer keyWordSniffer;
 	private static boolean isExit = false;
 	private static String csvFilePatch;
 	private static String followUpMsg = "Incorporate above Hashtag and Keyword could increase the popularity of your next post " +
@@ -119,7 +119,7 @@ public class IOHandler {
 	 * API documents.
 	 */
 	public List<String> keywordTrend(int numOfResultsToFind) throws IOException {
-		keyWordSniffer = new TextContentKeyWordSniffer();
+		keyWordSniffer = new MainTextContentSniffer();
 		return keyWordSniffer.findTrend(numOfResultsToFind);
 	}
 

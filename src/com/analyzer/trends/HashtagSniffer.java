@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * then find the hashtag/s which appeared the most frequent.
  */
 
-public class HashtagSniffer extends TrendFinder {
+public class HashtagSniffer extends Sniffer {
 	private int max = 0; // max appearances of a hashtags
 	private int finalMax = 0;
 

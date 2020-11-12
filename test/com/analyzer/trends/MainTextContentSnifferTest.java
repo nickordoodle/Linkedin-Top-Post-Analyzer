@@ -6,12 +6,12 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class TextContentKeyWordSnifferTest {
-	private TextContentKeyWordSniffer textSniffer;
+public class MainTextContentSnifferTest {
+	private MainTextContentSniffer textSniffer;
 
 	@Before
 	public void setUp() throws Exception {
-		textSniffer = new TextContentKeyWordSniffer();
+		textSniffer = new MainTextContentSniffer();
 	}
 
 	@Test

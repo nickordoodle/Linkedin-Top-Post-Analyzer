@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class TrendFinder {
+public abstract class Sniffer {
 	// Relative path for the csv data that we work with to be accessed anywhere
 	public static final String csvDataFilePath = "./src/com/data/25-posts-by-user-nick.csv";
 	// The limit we will use to find the user's most popular posts
@@ -23,7 +23,7 @@ public abstract class TrendFinder {
 	// Entire raw list of posts generated from csvFile
 	private List<Post> userTopPostsFilteredByALimit;
 
-	public TrendFinder() throws IOException {
+	public Sniffer() throws IOException {
 		csvReader = new LinkedInUserCSVReader(csvDataFilePath);
 		userPostsDataFromCSVFile = csvReader.load();
 		// Retrieve top posts according to limit so subclasses can use
