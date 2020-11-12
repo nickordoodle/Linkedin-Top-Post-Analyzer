@@ -30,6 +30,15 @@ public class Post {
 	}
 
 	/**
+	 * Creates a Post containing only an Id.
+	 *
+	 * @param postId The post's unique ID.
+	 */
+	public Post(int postId) {
+		setPostId(postId);
+	}
+
+	/**
 	 * Creates a Post with all fields minus its views.
 	 *
 	 * @param postId          The post's unique ID.
@@ -40,11 +49,11 @@ public class Post {
 	 */
 	public Post(int postId, String mainTextContent, List<String> listOfHashTags,
 	            int numOfLikes, int numOfComments) {
-		this.postId = postId;
-		this.mainTextContent = mainTextContent;
-		this.listOfHashTags = listOfHashTags;
-		this.numOfLikes = numOfLikes;
-		this.numOfComments = numOfComments;
+		this(postId);
+		setMainTextContent(mainTextContent);
+		setListOfHashTags(listOfHashTags);
+		setNumOfLikes(numOfLikes);
+		setNumOfComments(numOfComments);
 	}
 
 	/**
@@ -61,7 +70,7 @@ public class Post {
 	            int numOfLikes, int numOfComments, int numOfViews) {
 		this(postId, mainTextContent, listOfHashTags,
 				numOfLikes, numOfComments);
-		this.numOfViews = numOfViews;
+		setNumOfViews(numOfViews);
 	}
 
 	/**

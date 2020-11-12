@@ -1,7 +1,6 @@
 package com.analyzer.sniffer;
 
 import com.analyzer.model.Post;
-
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,11 +18,14 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class HashtagSniffer extends Sniffer {
-	private int max = 0; // max appearances of a hashtags
-	private int finalMax = 0;
+	// max appearances of a hashtags
+	private int max = 0;
 
+	/**
+	 * Creates a HashtagSniffer object.
+	 * */
 	public HashtagSniffer() throws IOException {
-	} // Constructor
+	}
 
 	/**
 	 * Returns a list of Hashtag trend results according to users top posts.
@@ -49,7 +51,6 @@ public class HashtagSniffer extends Sniffer {
 	 * @return the list of all the String Hashtags from supplement posts as results
 	 * @see List
 	 */
-
 	public List<String> getHashtagList() {
 		// sorting list, return a list of List<String> of hashtags for the top ${numOfResultsToFind} post/s.
 		List<List<String>> list = getUserTopPostsFilteredByALimit().stream()
@@ -69,10 +70,26 @@ public class HashtagSniffer extends Sniffer {
 	 * @return the list of most popular Hashtags from supplement posts as results
 	 * @see List
 	 */
-
 	public List<String> getHashtagTrend(List<String> listOfHashtags) {
 		// Insert listOfHashtags into Map<Integer, String>
 		Map<Integer, String> mod = new HashMap<>();
+
+		// Finds the most frequently used hashtags
+		getMostHashTagOccurrences(listOfHashtags, mod);
+
+		int finalMax = max;
+		List<String> modeOfHashtags = mod.entrySet().stream()
+				.filter(c -> c.getKey() == finalMax)
+				.map(Map.Entry::getValue)
+				.collect(Collectors.toList());
+		return modeOfHashtags;
+	}
+
+	/**
+	 * Helper method to increment an occurrences in a map
+	 * of the user's most used hashtags.
+	 */
+	private void getMostHashTagOccurrences(List<String> listOfHashtags, Map<Integer, String> mod) {
 		for (int i = 0; i < listOfHashtags.size(); i++) {
 			int count = 0;
 			for (int j = 0; j < listOfHashtags.size(); j++) {
@@ -90,13 +107,6 @@ public class HashtagSniffer extends Sniffer {
 				max = count;
 			}
 		}
-		finalMax = max;
-		int finalMax = max;
-		List<String> modeOfHashtags = mod.entrySet().stream()
-				.filter(c -> c.getKey() == finalMax)
-				.map(Map.Entry::getValue)
-				.collect(Collectors.toList());
-		return modeOfHashtags;
 	}
 }
 

@@ -17,10 +17,19 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public abstract class Sniffer {
-	// Relative path for the csv data that we work with to be accessed anywhere
-	public static final String csvSampleDataFilePath = "./src/com/data/sample-csv-data-file-of-25-posts.csv";
-	// The limit we will use to find the user's most popular posts
+
+	/**
+	 * Sample data csv path.
+	 */
+	public static final String csvSampleDataFilePath = "./resources/sample-csv-data-file-of-25-posts.csv";
+
+	/**
+	 * Default value determining to find the top N posts.
+	 * N being this value.
+	 */
 	public static final int numOfTopPostsToFind = 5;
+
+	// Class Fields
 
 	// Custom reader utility class to load csv into a list
 	private LinkedInUserCSVReader csvReader;
@@ -31,11 +40,16 @@ public abstract class Sniffer {
 	// Entire raw list of posts generated from csvFile
 	private List<Post> userTopPostsFilteredByALimit;
 
+	/**
+	 * Creates a Sniffer. Loads the csv file data and sets the top posts.
+	 * @throws IOException
+	 */
 	public Sniffer() throws IOException {
-		csvReader = new LinkedInUserCSVReader(csvSampleDataFilePath);
-		userPostsDataFromCSVFile = csvReader.load();
-		// Retrieve top posts according to limit so subclasses can use
-		userTopPostsFilteredByALimit = getTopPosts(numOfTopPostsToFind);
+		// Initialize the reader and load the csv file.
+		setCSVReader(new LinkedInUserCSVReader(csvSampleDataFilePath));
+		setUserPostsDataFromCSVFile(csvReader.load());
+		// Initialize top posts according to limit so subclasses can use
+		setUserTopPostsFilteredByALimit(getTopPosts(numOfTopPostsToFind));
 	}
 
 	/**
@@ -71,18 +85,7 @@ public abstract class Sniffer {
 	 * @return the list of String results
 	 * @see List
 	 */
-	//TODO change hashtag sniffer function to implement this function
 	public abstract List<String> findTrend(int numOfResultsToFind) throws IOException;
-
-	/**
-	 * Returns the user posts list.
-	 *
-	 * @return the user posts
-	 * @see List
-	 */
-	public List<Post> getUserPostsDataFromCSVFile() {
-		return userPostsDataFromCSVFile;
-	}
 
 	/**
 	 * Returns the top users post list.
@@ -93,5 +96,27 @@ public abstract class Sniffer {
 	public List<Post> getUserTopPostsFilteredByALimit() {
 		return userTopPostsFilteredByALimit;
 	}
+
+	/**
+	 * Sets the users top posts.
+	 */
+	private void setUserTopPostsFilteredByALimit(List<Post> userTopPostsFilteredByALimit) {
+		this.userTopPostsFilteredByALimit = userTopPostsFilteredByALimit;
+	}
+
+	/**
+	 * Sets the CSV Reader.
+	 */
+	private void setCSVReader(LinkedInUserCSVReader csvReader) {
+		this.csvReader = csvReader;
+	}
+
+	/**
+	 * Sets the user posts data list.
+	 */
+	private void setUserPostsDataFromCSVFile(List<Post> userPostsDataFromCSVFile) {
+		this.userPostsDataFromCSVFile = userPostsDataFromCSVFile;
+	}
+
 
 }

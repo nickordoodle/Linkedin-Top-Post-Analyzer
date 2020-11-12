@@ -2,7 +2,6 @@ package com.analyzer.sniffer;
 
 import com.analyzer.model.Post;
 import com.analyzer.helper.Grammar;
-
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -18,8 +17,13 @@ import java.util.stream.Collectors;
  * @since 1.0
  */
 public class MainTextContentSniffer extends Sniffer {
+	// Class Fields
 	private List<Post> topUsersPosts;
 
+	/**
+	 * Creates a MainTextContentSniffer. Initializes its top posts.
+	 * @throws IOException
+	 */
 	public MainTextContentSniffer() throws IOException {
 		this.topUsersPosts = getUserTopPostsFilteredByALimit();
 	}

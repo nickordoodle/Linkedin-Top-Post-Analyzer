@@ -3,7 +3,6 @@ package com.analyzer.client;
 import com.analyzer.io.IOHandler;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Represents the program entry point to LinkedIn Top Post Analyzer.
