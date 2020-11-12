@@ -35,6 +35,26 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 		List<String> listOfKeyWords = new ArrayList<>();
 		listOfKeyWords = filterTextPosts(topPostTextContentList);
 
+		Map<String, Integer> keywordOccurrences = incrementKeyWord(listOfKeyWords);
+
+		listOfKeyWords.sort(Comparator.comparingInt(keywordOccurrences::get));
+
+		//TODO Write code to handle return keyword list less than requested numberofresults
+		// Return sub list of result according to limit
+		return listOfKeyWords.subList(0, numOfResultsToFind - 1);
+	}
+
+	/**
+	 * Increments a value in a String / Integer Map.
+	 * <p>
+	 * Iterates over the parameter list and returns a map of
+	 * every keywords occurrence.
+	 *
+	 * @param listOfKeyWords the given list of String keywords
+	 * @return the map of occurrences for each keyword from the given list.
+	 * @see List
+	 */
+	private Map<String, Integer> incrementKeyWord(List<String> listOfKeyWords) {
 		Map<String, Integer> keywordOccurrences = new HashMap<>();
 		listOfKeyWords.forEach(keyword -> {
 			if (keywordOccurrences.containsKey(keyword)) {
@@ -46,12 +66,7 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 				keywordOccurrences.put(keyword, 1);
 			}
 		});
-
-		listOfKeyWords.sort(Comparator.comparingInt(keywordOccurrences::get));
-
-		//TODO Write code to handle return keyword list less than requested numberofresults
-		// Return sub list of result according to limit
-		return listOfKeyWords.subList(0, numOfResultsToFind - 1);
+		return keywordOccurrences;
 	}
 
 

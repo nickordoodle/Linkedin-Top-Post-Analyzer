@@ -19,4 +19,6 @@ public class TextContentKeyWordSnifferTest {
 		List<String> keywordResults = textSniffer.findTrend(3);
 		System.out.println(Arrays.toString(keywordResults.toArray()));
 	}
+
+
 }
