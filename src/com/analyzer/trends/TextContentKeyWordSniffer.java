@@ -1,7 +1,7 @@
 package com.analyzer.trends;
 
 import com.analyzer.data.Post;
-import com.analyzer.dictionary.DictionaryHelper;
+import com.analyzer.helper.Helper;
 
 import java.io.IOException;
 import java.util.*;
@@ -75,9 +75,9 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 			// Remove any possible empty values included
 			filteredWords.removeIf(String::isEmpty);
 			filteredWords.removeIf(keyword -> {
-				if (DictionaryHelper.isPronoun(keyword)
-						|| DictionaryHelper.isPreposition(keyword)
-						|| DictionaryHelper.isConjunction(keyword)) {
+				if (Helper.isPronoun(keyword)
+						|| Helper.isPreposition(keyword)
+						|| Helper.isConjunction(keyword)) {
 					return true;
 				}
 				return false;
