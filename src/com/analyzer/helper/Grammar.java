@@ -63,16 +63,20 @@ public class Grammar {
 	 */
 	public static class EnglishDictionary {
 
-		// English conjunctions data retrieved from internet source
-		static final List<String> all_conjunctions = Arrays.asList(
+		/**
+		 * Represents an English conjunctions data list retrieved from internet source.
+		 */
+		public static final List<String> all_conjunctions = Arrays.asList(
 				"all", "as though", "if when", "now that", "supposing", "whenever", "who", "as",
 				"before", "inasmuch", "once", "that", "whereas", "as long as", "even if", "just as",
 				"provided that", "though", "wherever", "as soon as", "if", "now", "since", "until",
 				"which", "for", "and", "nor", "but", "or", "yet", "so"
 		);
 
-		// English prepositions data retrieved from internet source
-		static final List<String> all_prepositions = Arrays.asList(
+		/**
+		 * Represents an English prepositions data list retrieved from internet source.
+		 */
+		public static final List<String> all_prepositions = Arrays.asList(
 				"all", "about", "above", "across", "after", "against", "along", "amid", "among",
 				"anti", "around", "as", "at", "before", "behind", "below", "beneath", "beside", "besides",
 				"between", "beyond", "but", "by", "concerning", "considering", "despite", "down", "during", "except", "excepting",
@@ -82,8 +86,10 @@ public class Grammar {
 				"unlike", "until", "up", "upon", "versus", "via", "with", "within", "without"
 		);
 
-		// English pronouns data retrieved from internet source
-		static final List<String> all_pronouns = Arrays.asList(
+		/**
+		 * Represents an English pronouns data list retrieved from internet source.
+		 */
+		public static final List<String> all_pronouns = Arrays.asList(
 				"all", "another", "any", "anybody", "anyone", "anything", "as", "aught", "both", "each",
 				"each other", "either", "enough", "everybody", "everyone", "everything", "few", "he", "her",
 				"hers", "herself", "him", "himself", "his", "I", "idem", "it", "its", "itself", "many", "me",

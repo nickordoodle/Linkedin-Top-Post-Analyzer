@@ -30,6 +30,24 @@ public class Post {
 	}
 
 	/**
+	 * Creates a Post with all fields minus its views.
+	 *
+	 * @param postId          The post's unique ID.
+	 * @param mainTextContent The post's text body.
+	 * @param listOfHashTags  The post's hashtags.
+	 * @param numOfLikes      The post's number of likes.
+	 * @param numOfComments   The post's number of comments.
+	 */
+	public Post(int postId, String mainTextContent, List<String> listOfHashTags,
+	            int numOfLikes, int numOfComments) {
+		this.postId = postId;
+		this.mainTextContent = mainTextContent;
+		this.listOfHashTags = listOfHashTags;
+		this.numOfLikes = numOfLikes;
+		this.numOfComments = numOfComments;
+	}
+
+	/**
 	 * Creates a Post with all fields.
 	 *
 	 * @param postId          The post's unique ID.
@@ -41,11 +59,8 @@ public class Post {
 	 */
 	public Post(int postId, String mainTextContent, List<String> listOfHashTags,
 	            int numOfLikes, int numOfComments, int numOfViews) {
-		this.postId = postId;
-		this.mainTextContent = mainTextContent;
-		this.listOfHashTags = listOfHashTags;
-		this.numOfLikes = numOfLikes;
-		this.numOfComments = numOfComments;
+		this(postId, mainTextContent, listOfHashTags,
+				numOfLikes, numOfComments);
 		this.numOfViews = numOfViews;
 	}
 
@@ -163,7 +178,12 @@ public class Post {
 		this.numOfViews = numOfViews;
 	}
 
-	// Custom equals and hashcode to determine what a same post is
+	/**
+	 * Determines equality compared to another Post object.
+	 *
+	 * @param comparePost the Post object to compare against.
+	 * @return boolean whether or not the two Post objects are equal.
+	 */
 	@Override
 	public boolean equals(Object comparePost) {
 		if (this == comparePost) return true;
@@ -176,11 +196,21 @@ public class Post {
 				Objects.equals(listOfHashTags, post.listOfHashTags);
 	}
 
+	/**
+	 * Determines the hashCode of a Post object.
+	 *
+	 * @return int of the Post's generated hashcode.
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(postId, numOfViews, numOfLikes, mainTextContent);
 	}
 
+	/**
+	 * Determines equality compared to another Post object.
+	 *
+	 * @return String representation of a Post object and its fields.
+	 */
 	@Override
 	public String toString() {
 		return "Post{" +

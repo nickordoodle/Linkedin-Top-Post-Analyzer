@@ -20,7 +20,8 @@ import java.util.concurrent.TimeUnit;
  * @since 1.0
  */
 public class IOHandler {
-	// Field
+
+	// Class Fields
 	private static String popResult;
 	private static Prompter prompter = new Prompter(new Scanner(System.in));
 	private static LinkedInUserCSVReader reader;
@@ -33,11 +34,12 @@ public class IOHandler {
 	private static String welcomeMsg = "Please provide the document in csv format" + "\n" + ">>";
 	private static final String goodbyeMsg = "Thank you for choosing Lambda Stream Technologies";
 
-	// Constructor
+	/**
+	 * Creates an IO Handler for the Client.
+	 *
+	 */
 	public IOHandler() {
 	}
-
-	// Methods
 
 	/**
 	 * Main method in Writer Class, act as a wrapper inside IOHandler.
@@ -58,7 +60,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * process user entry and invoke load() method in LinkedInUserCSVReader.
+	 * Process user entry and invoke load() method in LinkedInUserCSVReader.
 	 * <p>
 	 * This implementation utilize load() method in LinkedInUserCSVReader
 	 * to capture data from csv document for further process.
@@ -84,7 +86,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * output analysis result.
+	 * Output analysis result.
 	 * <p>
 	 * This implementation utilize hashtagTrend(), keywordTrend() methods
 	 * to prepare readable result of analysis.
@@ -99,7 +101,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * provide flag for program to indicate program flow.
+	 * Provide flag for program to indicate program flow.
 	 * <p>
 	 * This implementation return boolean value to continue or exit
 	 * the program.
@@ -117,7 +119,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * return list of popular hashtags.
+	 * Return list of popular hashtags.
 	 * <p>
 	 * This implementation invoke method in HashtagSniffer.
 	 * for details of each method, consult each individual method
@@ -129,7 +131,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * return list of popular keywords.
+	 * Return list of popular keywords.
 	 * <p>
 	 * This implementation invoke method in TextContentKeyWordSniffer.
 	 * for details of each method, consult each individual method
@@ -141,7 +143,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * remove open and close bracket from returned string.
+	 * Remove open and close bracket from returned string.
 	 * <p>
 	 * This implementation invoke replaceAll method with regex.
 	 * for details of each method, consult each individual method
@@ -152,7 +154,7 @@ public class IOHandler {
 	}
 
 	/**
-	 * load and print banner from banner.txt file.
+	 * Load and print banner from banner.txt file.
 	 * <p>
 	 * This implementation read from external txt file for banner.
 	 * for details of each method, consult each individual method

@@ -16,7 +16,7 @@ public class MainTextContentSnifferTest {
 
 	@Test
 	public void findTrend() {
-		List<String> keywordResults = textSniffer.findTrend(1000);
+		List<String> keywordResults = textSniffer.findTrend(5);
 		System.out.println(keywordResults.size());
 		System.out.println(Arrays.toString(keywordResults.toArray()));
 	}
