@@ -67,12 +67,19 @@ public class IOHandler {
 	 */
 	private void read() throws IOException, InterruptedException {
 		csvFilePatch = prompter.prompt(welcomeMsg);
-		if (!csvFilePatch.equals("")) {
-			reader = new LinkedInUserCSVReader(csvFilePatch);
-			reader.load();
-		} else {
-			cleanScreen();
-			write();
+		try {
+			if (!csvFilePatch.equals("")) {
+				reader = new LinkedInUserCSVReader(csvFilePatch);
+				reader.load();
+			} else {
+				cleanScreen();
+				write();
+			}
+		} catch (IOException e) {
+			//e.printStackTrace();
+			System.out.println("Invalid input, File does not exist. "+"\n"+
+					"Please provide a valid document " +
+					"or you can refer to historical recommendation below");
 		}
 	}
 
