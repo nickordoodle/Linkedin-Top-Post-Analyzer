@@ -3,6 +3,8 @@
 
 *.xml
 
+test/*
+
 # Compiled class file
 *.class
 
