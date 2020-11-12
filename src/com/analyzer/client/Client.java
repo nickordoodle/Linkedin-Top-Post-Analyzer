@@ -16,6 +16,6 @@ public class Client {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         IOHandler ioHandler = new IOHandler();
-        ioHandler.write();
+        ioHandler.initialize();
     }
 }

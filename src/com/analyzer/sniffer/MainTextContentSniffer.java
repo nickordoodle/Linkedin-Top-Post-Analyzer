@@ -1,7 +1,7 @@
 package com.analyzer.sniffer;
 
-import com.analyzer.data.Post;
-import com.analyzer.helper.Helper;
+import com.analyzer.model.Post;
+import com.analyzer.helper.Grammar;
 
 import java.io.IOException;
 import java.util.*;
@@ -50,8 +50,10 @@ public class MainTextContentSniffer extends Sniffer {
 
         listOfKeyWords.removeIf(String::isEmpty);
         listOfKeyWords = listOfKeyWords.stream()
+                .map(String::toLowerCase)
                 .limit(numOfResultsToFind)
                 .collect(Collectors.toList());
+
         return listOfKeyWords;
     }
 
@@ -101,9 +103,9 @@ public class MainTextContentSniffer extends Sniffer {
             // Remove any possible empty values included
             filteredWords.removeIf(String::isEmpty);
             filteredWords.removeIf(keyword -> {
-                if (Helper.isPronoun(keyword)
-                        || Helper.isPreposition(keyword)
-                        || Helper.isConjunction(keyword)) {
+                if (Grammar.isPronoun(keyword)
+                        || Grammar.isPreposition(keyword)
+                        || Grammar.isConjunction(keyword)) {
                     return true;
                 }
                 return false;

@@ -1,6 +1,6 @@
 package com.analyzer.io;
 
-import com.analyzer.data.Post;
+import com.analyzer.model.Post;
 
 import java.io.IOException;
 import java.nio.file.Files;

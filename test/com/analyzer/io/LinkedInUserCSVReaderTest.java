@@ -1,6 +1,6 @@
 package com.analyzer.io;
 
-import com.analyzer.data.Post;
+import com.analyzer.model.Post;
 import org.junit.Before;
 import org.junit.Test;
 

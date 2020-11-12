@@ -1,6 +1,6 @@
 package com.analyzer.sniffer;
 
-import com.analyzer.data.Post;
+import com.analyzer.model.Post;
 import com.analyzer.io.LinkedInUserCSVReader;
 
 import java.io.IOException;
