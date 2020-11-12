@@ -1,7 +1,7 @@
 package com.analyzer.io;
 
-import com.analyzer.trends.HashtagSniffer;
-import com.analyzer.trends.MainTextContentSniffer;
+import com.analyzer.sniffer.HashtagSniffer;
+import com.analyzer.sniffer.MainTextContentSniffer;
 import com.apps.util.Prompter;
 
 import java.io.IOException;

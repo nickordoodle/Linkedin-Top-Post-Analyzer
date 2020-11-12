@@ -1,4 +1,4 @@
-package com.analyzer.trends;
+package com.analyzer.sniffer;
 
 import com.analyzer.data.Post;
 import com.analyzer.helper.Helper;

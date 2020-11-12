@@ -1,4 +1,4 @@
-package com.analyzer.trends;
+package com.analyzer.sniffer;
 
 import org.junit.Before;
 import org.junit.Test;
