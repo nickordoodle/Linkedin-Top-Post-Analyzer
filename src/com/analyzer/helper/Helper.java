@@ -3,6 +3,14 @@ package com.analyzer.helper;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Represents a helper class with English dictionary utility methods.
+ *
+ * @author Nick Scherer
+ * @author Jason Zhang
+ * @version 1.0
+ * @since 1.0
+ */
 public class Helper {
 	public static boolean isConjunction(String keyword) {
 		Dictionary.all_conjunctions.forEach(String::toLowerCase);

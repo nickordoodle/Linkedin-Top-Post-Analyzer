@@ -11,6 +11,14 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Represents a IOHandler focusing on social media content.
+ *
+ * @author Jason Zhang
+ * @author Nick Scherer
+ * @version 1.0
+ * @since 1.0
+ */
 public class IOHandler {
 	// Field
 	private static String popResult;

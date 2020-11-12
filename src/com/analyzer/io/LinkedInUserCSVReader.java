@@ -11,8 +11,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-//TODO make project run script to build jar via .sh bash file for windows
-
+/**
+ * Represents a class to read in LinkedIn posts content via .csv files.
+ *
+ * @author Nick Scherer
+ * @author Jason Zhang
+ * @version 1.0
+ * @since 1.0
+ */
 public class LinkedInUserCSVReader {
 	private Path dataFilePath;
 

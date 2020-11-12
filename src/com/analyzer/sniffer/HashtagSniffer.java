@@ -10,10 +10,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * HashtagSniffer, fist sorting list by number of views then by number of likes and lastly by number of comments.
- * then find the hashtag/s which appeared the most frequent.
+ * Represents a "hashtag" Sniffer. Searches for the most
+ * used hashtags in a user's most popular posts'.
+ *
+ * @author Jason Zhang
+ * @author Nick Scherer
+ * @version 1.0
+ * @since 1.0
  */
-
 public class HashtagSniffer extends Sniffer {
 	private int max = 0; // max appearances of a hashtags
 	private int finalMax = 0;

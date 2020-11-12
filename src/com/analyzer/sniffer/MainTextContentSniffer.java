@@ -7,6 +7,16 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Represents a "main text content" Sniffer. Searches for the most
+ * used words located in the main text section of
+ * the user's most popular posts'.
+ *
+ * @author Nick Scherer
+ * @author Jason Zhang
+ * @version 1.0
+ * @since 1.0
+ */
 public class MainTextContentSniffer extends Sniffer {
 	private List<Post> topUsersPosts;
 

@@ -8,6 +8,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Abstract Sniffer class with csv inputs used to implement String based searches.
+ *
+ * @author Nick Scherer
+ * @author Jason Zhang
+ * @version 1.0
+ * @since 1.0
+ */
 public abstract class Sniffer {
 	// Relative path for the csv data that we work with to be accessed anywhere
 	public static final String csvSampleDataFilePath = "./src/com/data/sample-csv-data-file-of-25-posts.csv";
