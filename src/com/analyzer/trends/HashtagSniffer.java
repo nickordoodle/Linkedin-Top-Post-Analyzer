@@ -23,6 +23,7 @@ public class HashtagSniffer extends TrendFinder {
 
     /**
      * Returns a list of Hashtag trend results according to users top posts.
+     * <p>
      * This implementation specific method analyzes the top user posts.
      * It then will determine useful information for the user to know
      * and returns a list of Hashtag Strings that appears most often

@@ -63,7 +63,7 @@ public abstract class TrendFinder {
      * @return the list of String results
      * @see List
      */
-    //TODO change hashtag sniffer function to implement this function
+    //DONE change hashtag sniffer function to implement this function
     public abstract List<String> findTrend(int numOfResultsToFind) throws IOException;
 
     /**
