@@ -38,9 +38,11 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 
 		listOfKeyWords.sort(Comparator.comparingInt(keywordOccurrences::get));
 
-		//TODO Write code to handle return keyword list less than requested numberofresults
-		// Return sub list of result according to limit
-		return listOfKeyWords.subList(0, numOfResultsToFind - 1);
+		listOfKeyWords.removeIf(String::isEmpty);
+		listOfKeyWords = listOfKeyWords.stream()
+				.limit(numOfResultsToFind)
+				.collect(Collectors.toList());
+		return listOfKeyWords;
 	}
 
 	/**
