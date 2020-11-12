@@ -12,81 +12,81 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class LinkedInUserCSVReaderTest {
-	private String noEntryCSVPath;
-	private String oneEntryCSVPath;
-	private String partialEntryCSVPath;
-	private String twentyFiveEntryCSVPath;
+    private String noEntryCSVPath;
+    private String oneEntryCSVPath;
+    private String partialEntryCSVPath;
+    private String twentyFiveEntryCSVPath;
 
-	private LinkedInUserCSVReader readerWithNoEntries;
-	private LinkedInUserCSVReader readerWithOneEntry;
-	private LinkedInUserCSVReader readerWithPartialEntry;
-	private LinkedInUserCSVReader readerWithTwentyFiveEntries;
+    private LinkedInUserCSVReader readerWithNoEntries;
+    private LinkedInUserCSVReader readerWithOneEntry;
+    private LinkedInUserCSVReader readerWithPartialEntry;
+    private LinkedInUserCSVReader readerWithTwentyFiveEntries;
 
-	private List<Post> noPosts;
-	private List<Post> onePost;
-	private List<Post> partialPost;
-	private List<Post> twentyFivePosts;
+    private List<Post> noPosts;
+    private List<Post> onePost;
+    private List<Post> partialPost;
+    private List<Post> twentyFivePosts;
 
-	@Before
-	public void setUp() throws IOException {
-		noEntryCSVPath = "test/com/analyzer/data/0-post-by-user.csv";
-		oneEntryCSVPath = "test/com/analyzer/data/1-post-by-user.csv";
-		partialEntryCSVPath = "test/com/analyzer/data/partial-post-by-user.csv";
-		twentyFiveEntryCSVPath = "test/com/analyzer/data/sample-csv-data-file-of-25-posts.csv";
+    @Before
+    public void setUp() throws IOException {
+        noEntryCSVPath = "test/com/analyzer/data/0-post-by-user.csv";
+        oneEntryCSVPath = "test/com/analyzer/data/1-post-by-user.csv";
+        partialEntryCSVPath = "test/com/analyzer/data/partial-post-by-user.csv";
+        twentyFiveEntryCSVPath = "test/com/analyzer/data/sample-csv-data-file-of-25-posts.csv";
 
-		readerWithNoEntries = new LinkedInUserCSVReader
-				(noEntryCSVPath);
-		readerWithOneEntry = new LinkedInUserCSVReader
-				(oneEntryCSVPath);
-		readerWithPartialEntry = new LinkedInUserCSVReader
-				(partialEntryCSVPath);
-		readerWithTwentyFiveEntries = new LinkedInUserCSVReader
-				(twentyFiveEntryCSVPath);
+        readerWithNoEntries = new LinkedInUserCSVReader
+                (noEntryCSVPath);
+        readerWithOneEntry = new LinkedInUserCSVReader
+                (oneEntryCSVPath);
+        readerWithPartialEntry = new LinkedInUserCSVReader
+                (partialEntryCSVPath);
+        readerWithTwentyFiveEntries = new LinkedInUserCSVReader
+                (twentyFiveEntryCSVPath);
 
-		noPosts = readerWithNoEntries.load();
-		onePost = readerWithOneEntry.load();
-		partialPost = readerWithPartialEntry.load();
-		twentyFivePosts = readerWithTwentyFiveEntries.load();
-	}
+        noPosts = readerWithNoEntries.load();
+        onePost = readerWithOneEntry.load();
+        partialPost = readerWithPartialEntry.load();
+        twentyFivePosts = readerWithTwentyFiveEntries.load();
+    }
 
-	@Test
-	public void testLoadReadsInStandardCSVDataOfNoPosts() {
-		List<Post> noPostList = new ArrayList<>();
-		assertEquals(noPostList, noPosts);
-	}
+    @Test
+    public void testLoadReadsInStandardCSVDataOfNoPosts() {
+        List<Post> noPostList = new ArrayList<>();
+        assertEquals(noPostList, noPosts);
+    }
 
-	@Test
-	public void testLoadReadsInStandardCSVDataOfOnePost() {
-		List<Post> onePostList = new ArrayList<>();
-		Post onlyPost = new Post();
-		onlyPost.setPostId(1);
-		onlyPost.setMainTextContent("I got hired today by my reach company! (Not Google) Anyways I will be on the second floor of my office :)");
-		onlyPost.setListOfHashTags(Arrays.asList("dart", "mobiledevelopment",
-				"minimumviableproduct", "crossplatformdevelopment"));
-		onlyPost.setNumOfLikes(3);
-		onlyPost.setNumOfComments(1);
-		onlyPost.setNumOfViews(421);
-		onePostList.add(onlyPost);
-		assertEquals(onePostList, onePost);
-	}
+    @Test
+    public void testLoadReadsInStandardCSVDataOfOnePost() {
+        List<Post> onePostList = new ArrayList<>();
+        Post onlyPost = new Post();
+        onlyPost.setPostId(1);
+        onlyPost.setMainTextContent("I got hired today by my reach company! (Not Google) Anyways I will be on the second floor of my office :)");
+        onlyPost.setListOfHashTags(Arrays.asList("dart", "mobiledevelopment",
+                "minimumviableproduct", "crossplatformdevelopment"));
+        onlyPost.setNumOfLikes(3);
+        onlyPost.setNumOfComments(1);
+        onlyPost.setNumOfViews(421);
+        onePostList.add(onlyPost);
+        assertEquals(onePostList, onePost);
+    }
 
-	@Test
-	public void testLoadReadsInStandardCSVDataOfPartialPost() {
-		List<Post> partialPostList = new ArrayList<>();
-		Post partialPost = new Post();
-		partialPost.setPostId(3);
-		partialPost.setMainTextContent("");
-		partialPost.setListOfHashTags(Arrays.asList("mobileapps", "me"));
-		partialPost.setNumOfLikes(40);
-		partialPost.setNumOfComments(3);
-		partialPost.setNumOfViews(405);
-		partialPostList.add(partialPost);
-		assertEquals(partialPostList, this.partialPost);
-	}
+    @Test
+    public void testLoadReadsInStandardCSVDataOfPartialPost() {
+        List<Post> partialPostList = new ArrayList<>();
+        Post partialPost = new Post();
+        partialPost.setPostId(3);
+        partialPost.setMainTextContent("");
+        partialPost.setListOfHashTags(Arrays.asList("mobileapps", "me"));
+        partialPost.setNumOfLikes(40);
+        partialPost.setNumOfComments(3);
+        partialPost.setNumOfViews(405);
+        partialPostList.add(partialPost);
+        assertEquals(partialPostList, this.partialPost);
+    }
 
-	@Test
-	public void testLoadReadsInStandardCSVDataOfNicksPosts() {
-		assertEquals(25, twentyFivePosts.size());
-	}
+    @Test
+    public void testLoadReadsInStandardCSVDataOfNicksPosts() {
+        assertEquals(25, twentyFivePosts.size());
+    }
 
 }

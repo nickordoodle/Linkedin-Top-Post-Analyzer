@@ -5,11 +5,11 @@ import org.junit.Test;
 
 public class SnifferTest {
 
-	@After
-	public void tearDown() throws Exception {
-	}
+    @After
+    public void tearDown() throws Exception {
+    }
 
-	@Test
-	public void findTrend() {
-	}
+    @Test
+    public void findTrend() {
+    }
 }
