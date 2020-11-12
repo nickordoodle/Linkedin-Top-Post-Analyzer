@@ -30,13 +30,12 @@ public class IOHandler {
 	private static boolean isExit = false;
 	private static String csvFilePatch;
 	private static String followUpMsg = " Take our Advice, Increase your Reach, \n Expand your Network and Watch your Content go Viral! \n"
-			 + "Please enter 'Y' to continue to analyze another document or 'N' to exit \n" + "\n" + ">>";
+			+ "Please enter 'Y' to continue to analyze another document or 'N' to exit \n" + "\n" + ">>";
 	private static String welcomeMsg = "Please provide the document in csv format" + "\n" + ">>";
 	private static final String goodbyeMsg = "Thank you for choosing Lambda Stream Technologies";
 
 	/**
 	 * Creates an IO Handler for the Client.
-	 *
 	 */
 	public IOHandler() {
 	}
@@ -79,7 +78,7 @@ public class IOHandler {
 			}
 		} catch (IOException e) {
 			//e.printStackTrace();
-			System.out.println("Invalid input, File does not exist. "+"\n"+
+			System.out.println("Invalid input, File does not exist. " + "\n" +
 					"Please provide a valid document " +
 					"or you can refer to historical recommendation below");
 		}

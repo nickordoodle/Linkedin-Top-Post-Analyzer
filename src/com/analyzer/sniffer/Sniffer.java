@@ -42,6 +42,7 @@ public abstract class Sniffer {
 
 	/**
 	 * Creates a Sniffer. Loads the csv file data and sets the top posts.
+	 *
 	 * @throws IOException
 	 */
 	public Sniffer() throws IOException {

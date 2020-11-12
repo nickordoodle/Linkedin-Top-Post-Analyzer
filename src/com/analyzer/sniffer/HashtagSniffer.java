@@ -1,6 +1,7 @@
 package com.analyzer.sniffer;
 
 import com.analyzer.model.Post;
+
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public class HashtagSniffer extends Sniffer {
 
 	/**
 	 * Creates a HashtagSniffer object.
-	 * */
+	 */
 	public HashtagSniffer() throws IOException {
 	}
 

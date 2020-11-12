@@ -2,6 +2,7 @@ package com.analyzer.sniffer;
 
 import com.analyzer.model.Post;
 import com.analyzer.helper.Grammar;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,6 +23,7 @@ public class MainTextContentSniffer extends Sniffer {
 
 	/**
 	 * Creates a MainTextContentSniffer. Initializes its top posts.
+	 *
 	 * @throws IOException
 	 */
 	public MainTextContentSniffer() throws IOException {

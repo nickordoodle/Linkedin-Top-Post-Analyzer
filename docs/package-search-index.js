@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.analyzer.client"},{"l":"com.analyzer.data"},{"l":"com.analyzer.helper"},{"l":"com.analyzer.io"},{"l":"com.analyzer.sniffer"}]
