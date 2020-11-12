@@ -32,8 +32,7 @@ public class TextContentKeyWordSniffer extends TrendFinder {
 				.map(Post::getMainTextContent)
 				.collect(Collectors.toList());
 
-		List<String> listOfKeyWords = new ArrayList<>();
-		listOfKeyWords = filterTextPosts(topPostTextContentList);
+		List<String> listOfKeyWords = filterTextPosts(topPostTextContentList);
 
 		Map<String, Integer> keywordOccurrences = incrementKeyWord(listOfKeyWords);
 
