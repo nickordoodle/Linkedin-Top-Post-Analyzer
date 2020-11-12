@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public abstract class Sniffer {
 	// Relative path for the csv data that we work with to be accessed anywhere
-	public static final String csvDataFilePath = "./src/com/data/25-posts-by-user-nick.csv";
+	public static final String csvSampleDataFilePath = "./src/com/data/sample-csv-data-file-of-25-posts.csv";
 	// The limit we will use to find the user's most popular posts
 	public static final int numOfTopPostsToFind = 5;
 
@@ -24,7 +24,7 @@ public abstract class Sniffer {
 	private List<Post> userTopPostsFilteredByALimit;
 
 	public Sniffer() throws IOException {
-		csvReader = new LinkedInUserCSVReader(csvDataFilePath);
+		csvReader = new LinkedInUserCSVReader(csvSampleDataFilePath);
 		userPostsDataFromCSVFile = csvReader.load();
 		// Retrieve top posts according to limit so subclasses can use
 		userTopPostsFilteredByALimit = getTopPosts(numOfTopPostsToFind);

@@ -32,7 +32,7 @@ public class LinkedInUserCSVReaderTest {
 		noEntryCSVPath = "test/com/analyzer/data/0-post-by-user.csv";
 		oneEntryCSVPath = "test/com/analyzer/data/1-post-by-user.csv";
 		partialEntryCSVPath = "test/com/analyzer/data/partial-post-by-user.csv";
-		twentyFiveEntryCSVPath = "test/com/analyzer/data/25-posts-by-user-nick.csv";
+		twentyFiveEntryCSVPath = "test/com/analyzer/data/sample-csv-data-file-of-25-posts.csv";
 
 		readerWithNoEntries = new LinkedInUserCSVReader
 				(noEntryCSVPath);
