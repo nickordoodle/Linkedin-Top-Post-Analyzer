@@ -34,6 +34,7 @@ public class IOHandler {
 
 	// Constructor
 	public IOHandler() {
+		super();
 	}
 
 	// Methods
@@ -120,6 +121,7 @@ public class IOHandler {
 		}
 		return true;
 	}
+
 
 	/**
 	 * return list of popular hashtags.
