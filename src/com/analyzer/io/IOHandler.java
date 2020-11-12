@@ -28,10 +28,10 @@ public class IOHandler {
 	private static MainTextContentSniffer keyWordSniffer;
 	private static boolean isExit = false;
 	private static String csvFilePatch;
-	private static String followUpMsg = "Incorporate above Hashtag and Keyword could increase the popularity of your next post " +
-			"\n" + "Please enter 'Y' to continue to analyze another document or 'N' to exit" + "\n" + ">>";
+	private static String followUpMsg = " Take our Advice, Increase your Reach, \n Expand your Network and Watch your Content go Viral! \n"
+			 + "Please enter 'Y' to continue to analyze another document or 'N' to exit \n" + "\n" + ">>";
 	private static String welcomeMsg = "Please provide the document in csv format" + "\n" + ">>";
-	private static final String goodbyeMsg = "Thank you for choosing Lambda Stream Technology";
+	private static final String goodbyeMsg = "Thank you for choosing Lambda Stream Technologies";
 
 	// Constructor
 	public IOHandler() {
@@ -85,8 +85,10 @@ public class IOHandler {
 	 * API documents.
 	 */
 	private void result() throws IOException {
-		System.out.println("The popular Hashtag(s) is/are: " + regexCleaner(hashtagTrend(5)) + "\n"
-				+ "The popular Keyword(s) is/are: " + regexCleaner(keywordTrend(5)));
+		System.out.println("\n Based on the historical profile data and performance, \n" +
+				" we recommend you use the following types of content in future posts. \n" +
+				"\n Use these #hashtags: " + regexCleaner(hashtagTrend(5)) + "\n"
+				+ "\n Use these keyword(s): " + regexCleaner(keywordTrend(5)) + "\n");
 	}
 
 	/**

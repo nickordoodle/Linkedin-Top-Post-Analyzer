@@ -50,8 +50,10 @@ public class MainTextContentSniffer extends Sniffer {
 
 		listOfKeyWords.removeIf(String::isEmpty);
 		listOfKeyWords = listOfKeyWords.stream()
+				.map(String::toLowerCase)
 				.limit(numOfResultsToFind)
 				.collect(Collectors.toList());
+
 		return listOfKeyWords;
 	}
 
