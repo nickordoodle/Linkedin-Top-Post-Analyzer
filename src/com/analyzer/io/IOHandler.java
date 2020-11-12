@@ -26,7 +26,6 @@ public class IOHandler {
     private static LinkedInUserCSVReader reader;
     private static HashtagSniffer hashtagSniffer;
     private static MainTextContentSniffer keyWordSniffer;
-    private static boolean isExit = false;
     private static String csvFilePatch;
     private static String followUpMsg = " Take our Advice, Increase your Reach, \n Expand your Network and Watch your Content go Viral! \n"
             + "Please enter 'Y' to continue to analyze another document or 'N' to exit \n" + "\n" + ">>";
@@ -72,14 +71,17 @@ public class IOHandler {
                 reader = new LinkedInUserCSVReader(csvFilePatch);
                 reader.load();
             } else {
+                System.out.println("Sorry, Not a Valid path, Please try again.");
+                TimeUnit.SECONDS.sleep(1);
                 cleanScreen();
                 initialize();
             }
         } catch (IOException e) {
             //e.printStackTrace();
-            System.out.println("Invalid input, File does not exist. " + "\n" +
+            System.out.println("Sorry, Not a Valid path, Please try again." + "\n" +
                     "Please provide a valid document " +
                     "or you can refer to historical recommendation below");
+            TimeUnit.SECONDS.sleep(1);
         }
     }
 
@@ -106,9 +108,13 @@ public class IOHandler {
      * for details of each method, consult each individual method
      * API documents.
      */
-    private boolean isExit() throws InterruptedException {
+    private boolean isExit() throws InterruptedException, IOException {
         String entry = prompter.prompt(followUpMsg);
-        if (!entry.toUpperCase().equals("Y")) {
+        if (!entry.toUpperCase().equals("N") && !entry.toUpperCase().equals("Y")) {
+            System.out.println("Sorry, Not a Valid path, Please try again.");
+                isExit();
+        }
+        else if (entry.toUpperCase().equals("N")){
             System.out.println(goodbyeMsg);
             TimeUnit.SECONDS.sleep(3);
             System.exit(1);
