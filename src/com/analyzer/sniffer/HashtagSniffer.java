@@ -1,6 +1,6 @@
 package com.analyzer.sniffer;
 
-import com.analyzer.data.Post;
+import com.analyzer.model.Post;
 
 import java.io.IOException;
 import java.util.Collection;

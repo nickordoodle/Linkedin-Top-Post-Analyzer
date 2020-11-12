@@ -11,23 +11,23 @@ import java.util.List;
  * @version 1.0
  * @since 1.0
  */
-public class Helper {
+public class Grammar {
 	public static boolean isConjunction(String keyword) {
-		Dictionary.all_conjunctions.forEach(String::toLowerCase);
-		return Dictionary.all_conjunctions.contains(keyword.toLowerCase());
+		EnglishDictionary.all_conjunctions.forEach(String::toLowerCase);
+		return EnglishDictionary.all_conjunctions.contains(keyword.toLowerCase());
 	}
 
 	public static boolean isPreposition(String keyword) {
-		Dictionary.all_prepositions.forEach(String::toLowerCase);
-		return Dictionary.all_prepositions.contains(keyword.toLowerCase());
+		EnglishDictionary.all_prepositions.forEach(String::toLowerCase);
+		return EnglishDictionary.all_prepositions.contains(keyword.toLowerCase());
 	}
 
 	public static boolean isPronoun(String keyword) {
-		Dictionary.all_pronouns.forEach(String::toLowerCase);
-		return Dictionary.all_pronouns.contains(keyword.toLowerCase());
+		EnglishDictionary.all_pronouns.forEach(String::toLowerCase);
+		return EnglishDictionary.all_pronouns.contains(keyword.toLowerCase());
 	}
 
-	public static class Dictionary {
+	public static class EnglishDictionary {
 		static final List<String> all_conjunctions = Arrays.asList("all",
 				"As though",
 				"If when",
