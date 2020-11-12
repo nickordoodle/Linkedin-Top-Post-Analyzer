@@ -167,7 +167,7 @@ public class IOHandler {
 	 */
 	private void bannerLoader() throws IOException {
 		try {
-			String banner = Files.readString(Path.of("src", "com", "data", "banner.txt"));
+			String banner = Files.readString(Path.of(".", "resources", "banner.txt"));
 			System.out.println(banner);
 
 		} catch (IOException e) {
